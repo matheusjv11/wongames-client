@@ -1,8 +1,8 @@
 import * as S from './styles'
 
 export type HeadingProps = {
-  children: React.ReactNode,
-  color: 'white' | 'black',
+  children?: React.ReactNode,
+  color?: 'white' | 'black',
   lineLeft?: boolean,
   lineBottom?: boolean
 }
