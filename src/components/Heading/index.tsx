@@ -7,7 +7,7 @@ export type HeadingProps = {
   lineBottom?: boolean
 }
 
-const Heading = ({ children, color = 'black', lineLeft = false, lineBottom = false}: HeadingProps) => (
+const Heading = ({ children, color = 'white', lineLeft = false, lineBottom = false}: HeadingProps) => (
   <S.Wrapper color={color} lineLeft={lineLeft} lineBottom={lineBottom}>
       { children }
   </S.Wrapper>
