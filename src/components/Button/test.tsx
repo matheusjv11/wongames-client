@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-/* import { AddShoppingCart } from 'styled-icons' TODO: make this work */
+import { AddShoppingCart } from '@styled-icons/material/AddShoppingCart'
 
 import Button from '.'
 import { renderWithTheme } from 'utils/tests/helpers'
@@ -31,7 +31,7 @@ describe('<Button />', () => {
 
     expect(screen.getByRole('button', { name: /Buy now/i})).toHaveStyle({
       height: '5rem',
-      padding: '0.8rem 4.8rem',
+      padding: '0.8rem 4.0rem',
       'font-size': '1.6rem'
     })
   })
@@ -44,10 +44,10 @@ describe('<Button />', () => {
     })
   })
 
-/*   it('should render an icon version', () => {
+  it('should render an icon version', () => {
     renderWithTheme(<Button icon={<AddShoppingCart data-testid="icon" />}>Buy now</Button>)
 
     expect(screen.getByText(/buy now/i)).toBeInTheDocument()
     expect(screen.getByTestId('icon')).toBeInTheDocument()
-  }) */
+  }) 
 })
