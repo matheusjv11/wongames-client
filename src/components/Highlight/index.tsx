@@ -1,20 +1,22 @@
 import Button from 'components/Button'
 import * as S from './styles'
 
-type HighlightProps = {
+export type HighlightProps = {
   title: string,
   subtitle: string,
   buttonLabel: string,
-  buttonLink: string
+  buttonLink: string,
+  backgroundImage: string
 }
 
 const Highlight = ({
   title,
   subtitle,
   buttonLabel,
-  buttonLink
+  buttonLink,
+  backgroundImage
 }: HighlightProps) => (
-  <S.Wrapper>
+  <S.Wrapper backgroundImage={backgroundImage}>
     <S.Content>
       <S.Title>{title}</S.Title>
       <S.Subtitle>{subtitle}</S.Subtitle>
