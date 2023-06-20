@@ -26,11 +26,13 @@
   },
   "dependencies": {
     "@storybook/addon-knobs": "^6.1.15",
+    "@types/react-slick": "^0.23.10",
     "next": "^13.3.4",
     "next-pwa": "^5.0.5",
     "polished": "^4.2.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-slick": "^0.29.0",
     "styled-components": "^5.2.1",
     "styled-icons": "^10.47.0",
     "styled-media-query": "^2.1.2"
