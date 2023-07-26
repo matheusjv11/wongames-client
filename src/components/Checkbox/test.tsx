@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { waitFor, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Checkbox from '.'
@@ -35,5 +35,15 @@ describe('<Checkbox />', () => {
     await waitFor(() => {
       expect(onCheck).toHaveBeenCalledTimes(1)
     })
+  })
+
+  it('should be accessible with tab', () => {
+    renderWithTheme(<Checkbox label="Checkbox" labelFor="Checkbox" />)
+
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+
+    expect(screen.getByLabelText(/checkbox/i)).toHaveFocus()
   })
 })
