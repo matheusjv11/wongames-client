@@ -49,6 +49,11 @@ export const BannerContent = styled.div`
     height: 100%;
     position: relative;
     z-index: ${theme.layers.base};
+
+    a {
+        width: fit-content;
+        height: fit-content;
+    }
   `}
 `
 
@@ -87,7 +92,7 @@ export const ContentWrapper = styled.div`
     ${media.greaterThan('medium')`
       width: 36rem;
     `}
-    
+
     ${LogoStyles.Wrapper} {
       margin: 0 auto ${theme.spacings.xxlarge};
     }

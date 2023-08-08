@@ -19,6 +19,10 @@ const wrapperModifiers = {
         `}
     `,
 
+    huge: (theme: DefaultTheme) => css`
+        font-size: ${theme.font.sizes.huge};
+    `,
+
     lineLeft: (theme: DefaultTheme, lineColor: LineColor) => css`
         padding-left: ${theme.spacings.xxsmall};
         border-left: 0.7rem solid ${theme.colors[lineColor]};
@@ -43,8 +47,8 @@ export const Wrapper = styled.h2<HeadingProps>`
     ${({ theme, color, lineLeft, lineBottom, size, lineColor}) => css`
         color: ${theme.colors[color!]};
 
-        ${!!lineLeft && wrapperModifiers.lineLeft(theme, lineColor)}
-        ${!!lineBottom && wrapperModifiers.lineBottom(theme, lineColor)}
+        ${!!lineLeft && wrapperModifiers.lineLeft(theme, lineColor!)}
+        ${!!lineBottom && wrapperModifiers.lineBottom(theme, lineColor!)}
         ${!!size && wrapperModifiers[size](theme)}
     `}
 `
