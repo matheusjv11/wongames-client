@@ -1,33 +1,48 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
+
+import bannerMock from 'components/BannerSlider/mock'
+import gamesMock from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
+
 import Home from '.'
 
+const props = {
+  banners: bannerMock,
+  newGames: gamesMock,
+  mostPopularHighlight: highlightMock,
+  mostPopularGames: gamesMock,
+  upcommingGames: gamesMock,
+  upcommingHighlight: highlightMock,
+  upcommingMoreGames: gamesMock,
+  freeGames: gamesMock,
+  freeHighlight: highlightMock
+}
+
+jest.mock('components/Showcase', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Showcase"></div>
+    }
+  }
+})
+
+jest.mock('components/BannerSlider', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Banner Slider"></div>
+    }
+  }
+})
+
 describe('<Home />', () => {
-  it('should render menu and footer', () => {
-    renderWithTheme(<Home />)
-
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /contact us/i })
-    ).toBeInTheDocument()
-  })
-
-  it('should render the sections', () => {
-    renderWithTheme(<Home />)
-
-    expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
-
-    expect(
-      screen.getByRole('heading', { name: /most popular/i })
-    ).toBeInTheDocument()
-    
-    expect(
-      screen.getByRole('heading', { name: /upcomming/i })
-    ).toBeInTheDocument()
-
-    expect(
-      screen.getByRole('heading', { name: /free games/i })
-    ).toBeInTheDocument()
+  it('should render banner and showcase', () => {
+    renderWithTheme(<Home {...props} />)
+  
+    expect(screen.getByTestId('Mock Banner Slider')).toBeInTheDocument()
+    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
   })
 })
