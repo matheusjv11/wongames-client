@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import GameDetails from '.'
+import mockGame from './mock'
 
 const meta: Meta<typeof GameDetails> = {
   title: 'Game/GameDetails',
@@ -9,15 +10,22 @@ const meta: Meta<typeof GameDetails> = {
       default: 'won-dark'
     }
   },
-  args: {
-    platforms: ['windows', 'linux', 'mac']
-  },
+  args: mockGame,
   argTypes: {
     platforms: {
       control: {
         type: 'inline-check', 
       },
       options: ['windows', 'linux', 'mac']
+    },
+    releaseDate: {
+      control: 'date'
+    },
+    genres: {
+      control: {
+        type: 'inline-check',
+        options: ['Role-playing', 'Narrative']
+      }
     }
   }
 };
